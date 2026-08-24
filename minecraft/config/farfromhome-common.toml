@@ -1,0 +1,177 @@
+["Monster Scaling"]
+	#Enable monster level scaling based on distance from spawn
+	enableMonsterScaling = true
+	#Number of chunks for each difficulty tier (default: 100)
+	# Default: 100
+	# Range: 1 ~ 10000
+	chunksPerTier = 1000
+	#Minimum monster level at spawn (default: 1)
+	# Default: 1
+	# Range: 1 ~ 100
+	minMonsterLevel = 1
+	#Maximum monster level increase per tier (default: 2)
+	# Default: 2
+	# Range: 1 ~ 50
+	maxMonsterLevelPerTier = 5
+	#Health multiplier per monster level (default: 0.1 = 10% per level)
+	# Default: 0.1
+	# Range: 0.0 ~ 5.0
+	healthScalingPerLevel = 0.15
+	#Damage multiplier per monster level (default: 0.08 = 8% per level)
+	# Default: 0.08
+	# Range: 0.0 ~ 5.0
+	damageScalingPerLevel = 0.1
+	#Show visual indicators like name tags with levels (disable if using mods like Neat or Damage Indicators)
+	showVisualIndicators = true
+
+["Gear Spawning"]
+	#Base chance for monsters to spawn with gear (default: 0.05 = 5%)
+	# Default: 0.05
+	# Range: 0.0 ~ 1.0
+	baseGearChance = 0.05
+	#Additional gear chance per tier (default: 0.02 = 2%)
+	# Default: 0.02
+	# Range: 0.0 ~ 1.0
+	gearChancePerTier = 0.01
+	#Maximum gear chance cap (default: 0.75 = 75%)
+	# Default: 0.75
+	# Range: 0.0 ~ 1.0
+	maxGearChance = 0.75
+
+["Rare Monster Buffs"]
+	#Enable rare monsters with special buffs
+	enableRareBuffs = true
+	#Chance for a monster to spawn with buffs (default: 0.03 = 3%)
+	# Default: 0.03
+	# Range: 0.0 ~ 1.0
+	rareBuffChance = 0.03
+	#Maximum number of buffs per rare monster (default: 3)
+	# Default: 3
+	# Range: 1 ~ 10
+	maxBuffsPerMob = 3
+
+["Ore Scaling"]
+	#Enable ore drop and XP scaling based on distance
+	enableOreScaling = true
+	#Ore drop multiplier increase per tier (default: 0.1 = 10%)
+	# Default: 0.1
+	# Range: 0.0 ~ 10.0
+	oreDropMultiplierPerTier = 0.1
+	#Ore XP multiplier increase per tier (default: 0.15 = 15%)
+	# Default: 0.15
+	# Range: 0.0 ~ 10.0
+	oreXpMultiplierPerTier = 0.15
+	#Maximum ore drop multiplier (default: 6.0 = 600%)
+	# Default: 6.0
+	# Range: 1.0 ~ 100.0
+	maxOreDropMultiplier = 10.0
+	#Maximum ore XP multiplier (default: 10.0 = 1000%)
+	# Default: 10.0
+	# Range: 1.0 ~ 100.0
+	maxOreXpMultiplier = 10.0
+	#Distance in chunks defining spawn penalty zone (default: 312 = ~5000 blocks). Within this zone: diamonds 99% fail, other ores 25% fail. Rates scale to 0% at this distance.
+	# Default: 312
+	# Range: 0 ~ 1000000
+	diamondSpawnDistance = 0
+
+["Daytime Hostiles"]
+	#Enable hostile mobs during daytime at extreme distances
+	enableDaytimeHostiles = true
+	#Distance in chunks where daytime hostiles start (default: 10000)
+	# Default: 10000
+	# Range: 0 ~ 1000000
+	daytimeHostileDistance = 10000
+	#Maximum persistent mobs allowed within 32 blocks to prevent lag (default: 50)
+	# Default: 50
+	# Range: 10 ~ 500
+	daytimeHostileMobCap = 50
+	#Scale mob density based on distance (default: true). When enabled, mob cap increases gradually with distance
+	enableScaledMobDensity = true
+	#Minimum mob cap near spawn when scaled density is enabled (default: 5)
+	# Default: 5
+	# Range: 1 ~ 50
+	minMobDensity = 5
+
+["Boss Encounters"]
+	#Enable random boss spawns at extreme distances
+	enableBossEncounters = true
+	#Distance in chunks where bosses can spawn (default: 100000)
+	# Default: 100000
+	# Range: 0 ~ 10000000
+	bossSpawnDistance = 500000
+	#Chance per check for a boss to spawn (default: 0.0001 = 0.01%)
+	# Default: 1.0E-4
+	# Range: 0.0 ~ 1.0
+	bossSpawnChance = 1.0E-4
+	#Cooldown between boss spawn checks in ticks (default: 12000 = 10 minutes)
+	# Default: 12000
+	# Range: 0 ~ 72000
+	bossSpawnCooldownTicks = 12000
+
+["Structure Modifications"]
+	#Enable structure modifications based on distance
+	enableStructureModifications = true
+	#Distance in chunks where abandoned villages become more common (default: 1000)
+	# Default: 1000
+	# Range: 0 ~ 100000
+	abandonedVillageIncreaseDistance = 1000
+	#Multiplier for abandoned village chance per tier (default: 1.5)
+	# Default: 1.5
+	# Range: 1.0 ~ 10.0
+	abandonedVillageChanceMultiplier = 1.5
+
+["Spawn Protection"]
+	#Enable spawn protection zone where PvP is disabled
+	enableSpawnProtection = true
+	#Radius in blocks around spawn where PvP is disabled (default: 1000)
+	# Default: 1000
+	# Range: 0 ~ 100000
+	spawnProtectionRadius = 1000
+
+["Death Penalties"]
+	#Enable distance-based death penalties
+	enableDeathPenalties = false
+	#Distance in chunks where death penalties begin (default: 62 = 1000 blocks)
+	# Default: 62
+	# Range: 0 ~ 1000000
+	deathPenaltyStartDistance = 62
+	#Percentage of XP lost at start distance (default: 0.10 = 10%)
+	# Default: 0.1
+	# Range: 0.0 ~ 1.0
+	deathPenaltyStartPercent = 0.1
+	#Distance in chunks where max penalty is reached (default: 625 = 10000 blocks)
+	# Default: 625
+	# Range: 0 ~ 1000000
+	deathPenaltyMaxDistance = 625
+	#Maximum percentage of XP lost at max distance (default: 0.25 = 25%)
+	# Default: 0.25
+	# Range: 0.0 ~ 1.0
+	deathPenaltyMaxPercent = 0.25
+	#Distance in chunks where catastrophic loss can occur (default: 625 = 10000 blocks)
+	# Default: 625
+	# Range: 0 ~ 1000000
+	deathPenaltyCatastrophicDistance = 625
+	#Chance for catastrophic XP loss at extreme distances (default: 0.05 = 5%)
+	# Default: 0.05
+	# Range: 0.0 ~ 1.0
+	deathPenaltyCatastrophicChance = 0.05
+	#Percentage of XP lost on catastrophic loss (default: 0.80 = 80%)
+	# Default: 0.8
+	# Range: 0.0 ~ 1.0
+	deathPenaltyCatastrophicPercent = 0.8
+
+["Loot Bags"]
+	#Enable loot bag drops from monsters
+	enableLootBags = true
+	#Base chance for loot bags to drop (default: 0.01 = 1%)
+	# Default: 0.01
+	# Range: 0.0 ~ 1.0
+	lootBagBaseDropChance = 0.001
+	#Additional drop chance per tier (default: 0.005 = 0.5%)
+	# Default: 0.005
+	# Range: 0.0 ~ 1.0
+	lootBagChancePerTier = 0.005
+	#Maximum loot bag drop chance cap (default: 0.25 = 25%)
+	# Default: 0.25
+	# Range: 0.0 ~ 1.0
+	lootBagMaxDropChance = 0.25

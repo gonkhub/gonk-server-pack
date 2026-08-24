@@ -1,0 +1,42 @@
+{
+	// 1 in N chance per step (e.g. 4 = 25% chance, 1 = always)
+	"stepChance": 4,
+	// Steps needed to trigger block transition
+	"maxSteps": 3,
+	// How far transitions spread to neighbours (0 = no spread)
+	"maxSpreadDepth": 2,
+	// Radius in blocks around a block within which sheep prevent conversion (0 = disabled)
+	"sheepProtectionRadius": 2,
+	// Log a message each time a block is converted (true/false)
+	"logConversions": true,
+	// Block transitions: source block ID -> target block ID
+	"transitions": {
+		"minecraft:coarse_dirt": "minecraft:dirt_path",
+		"minecraft:dirt": "minecraft:dirt_path",
+		"minecraft:grass_block": "minecraft:dirt_path"
+	},
+	// Block tags treated as passable overhead — conversion is still allowed when a matching block is above
+	"overheadPassableTags": [
+		"minecraft:replaceable",
+		"minecraft:flowers"
+	],
+	// Blocks that prevent conversion when placed underneath — e.g. wool protects a path from wearing down
+	"underlyingProtectionBlocks": [
+		"minecraft:white_wool",
+		"minecraft:orange_wool",
+		"minecraft:magenta_wool",
+		"minecraft:light_blue_wool",
+		"minecraft:yellow_wool",
+		"minecraft:lime_wool",
+		"minecraft:pink_wool",
+		"minecraft:gray_wool",
+		"minecraft:light_gray_wool",
+		"minecraft:cyan_wool",
+		"minecraft:purple_wool",
+		"minecraft:blue_wool",
+		"minecraft:brown_wool",
+		"minecraft:green_wool",
+		"minecraft:red_wool",
+		"minecraft:black_wool"
+	]
+}

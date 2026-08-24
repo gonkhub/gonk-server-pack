@@ -1,0 +1,16 @@
+filename = 'apotheoticcreation-1.21.1-1.0.0-neoforge.jar'
+name = 'ApotheoticCreation(NeoForge)'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '0f2859a916793b0ba960fce51976b3c43e2e6b71e81170a80ce413ee338b22e238477effec17537accf6585e613454904dd13ebad7352159d1a14ad7d99efce1'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/RX1NARFO/versions/Xjo33LRd/apotheoticcreation-1.21.1-1.0.0-neoforge.jar'
+
+[update.modrinth]
+mod-id = 'RX1NARFO'
+version = 'Xjo33LRd'

@@ -1,0 +1,16 @@
+filename = 'rpgtimeline-neoforge-1.21-2.0.4.1.jar'
+name = 'Timeline'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21', '1.21.1', '1.21.2' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '4955df8621fc6a5d76b5481661db68fdf3c15edc7ddc81d7601e163042d13c28f502f317914a797092685e415c090ad329333c685d8b0c4b736c5d0e3f984c9e'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/sYxN4jC2/versions/oEmxlnLp/rpgtimeline-neoforge-1.21-2.0.4.1.jar'
+
+[update.modrinth]
+mod-id = 'sYxN4jC2'
+version = 'oEmxlnLp'

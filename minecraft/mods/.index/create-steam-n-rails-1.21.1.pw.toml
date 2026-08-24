@@ -1,0 +1,16 @@
+filename = 'railways-0.3.0-beta+neoforge-mc1.21.1.jar'
+name = "Steam 'n' Rails Neoforge"
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'beta'
+
+[download]
+hash = '0abf3fde91d9dcb10d253e7b8b2a20188e939194c547f9f023262d74c34884ff42f873f960291e55340f77767d7bfcc601efdd9d71fe25acc6395a5031a9b9ef'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/L3Jv0QZI/versions/mvE5W1r2/railways-0.3.0-beta%2Bneoforge-mc1.21.1.jar'
+
+[update.modrinth]
+mod-id = 'L3Jv0QZI'
+version = 'mvE5W1r2'

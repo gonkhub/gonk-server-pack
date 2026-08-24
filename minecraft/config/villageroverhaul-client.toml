@@ -1,0 +1,25 @@
+[ui]
+	#Client-only UI: X offset applied to the reroll button relative to the base position.
+	#Base position is the vanilla MerchantScreen anchor used by VillagerOverhaul.
+	#
+	# Default: 20
+	# Range: -5000 ~ 5000
+	buttonOffsetX = 20
+	#Client-only UI: Y offset applied to the reroll button relative to the base position.
+	#Base position is the vanilla MerchantScreen anchor used by VillagerOverhaul.
+	#
+	# Default: -5
+	# Range: -5000 ~ 5000
+	buttonOffsetY = -5
+	#Client-only UI: X offset applied to the stats/info button relative to its base position.
+	#Base position is directly BELOW the reroll button.
+	#
+	# Default: 0
+	# Range: -5000 ~ 5000
+	statsButtonOffsetX = 0
+	#Client-only UI: Y offset applied to the stats/info button relative to its base position.
+	#Base position is directly BELOW the reroll button.
+	#
+	# Default: 0
+	# Range: -5000 ~ 5000
+	statsButtonOffsetY = 0

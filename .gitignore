@@ -1,0 +1,66 @@
+# ── gonk server pack ────────────────────────────────────────────────
+# This repo tracks the PACK: configs, scripts, and the mod manifest.
+# It deliberately does not track worlds, caches, logs, or third-party
+# mod jars. See README.md for how to assemble a playable instance.
+
+# ── Worlds and per-world data (3.4 GB) ──
+/minecraft/saves/
+/minecraft/Distant_Horizons_server_data/
+/minecraft/server-resource-packs/
+
+# ── Generated caches and build noise ──
+/minecraft/.mixin.out/
+/minecraft/.probe/
+/minecraft/.sable/
+/minecraft/.vscode/
+/minecraft/dynamic-data-pack-cache/
+/minecraft/dynamic-resource-pack-cache/
+/minecraft/downloads/
+/minecraft/coremods/
+/minecraft/texturepacks/
+
+# ── Logs, crashes, debug dumps ──
+/minecraft/logs/
+/minecraft/crash-reports/
+/minecraft/debug/
+/minecraft/screenshots/
+/minecraft/bluemap/logs/
+
+# ── Per-world / per-server state (the JEI path embeds the server IP) ──
+/minecraft/config/jei/world/
+/minecraft/bluemap/pluginState.json
+
+# ── Per-player state, not pack content ──
+/minecraft/xaero/
+/minecraft/XaeroWaypoints_BACKUP240807/
+/minecraft/usercache.json
+/minecraft/usernamecache.json
+/minecraft/patchouli_data.json
+/minecraft/patchouli_books/
+/minecraft/ponders_watched.json
+/minecraft/command_history.txt
+
+# ── Contains the live server address ──
+/minecraft/servers.dat
+/minecraft/servers.dat_old
+
+# ── Contains a generated auth token ──
+/minecraft/kubejs/config/web_server.json
+
+# ── Mod jars: track the packwiz index, not the downloads ──
+# mods/.index/*.pw.toml carries the URL + sha512 for every mod that
+# Prism installed, so the 99 third-party jars are reproducible without
+# being redistributed here. The exceptions below were added by hand and
+# have no index entry, so they must be tracked or the pack won't build.
+# ADD ANY NEW HAND-INSTALLED JAR TO THIS LIST.
+/minecraft/mods/*
+!/minecraft/mods/.index/
+!/minecraft/mods/thee-1.0.0.jar
+!/minecraft/mods/chaosgate-1.0.0.jar
+!/minecraft/mods/omnifix-1.0.0.jar
+!/minecraft/mods/akschematics-1.0.0.jar
+!/minecraft/mods/ProbeJS-8.0.3.jar
+!/minecraft/mods/kubejs-neoforge-2101.7.2-build.368.jar
+!/minecraft/mods/kubejs-create-neoforge-2101.3.1-build.18.jar
+!/minecraft/mods/lootjs-neoforge-1.21.1-3.7.0.jar
+!/minecraft/mods/morejs-neoforge-1.21.1-0.16.0.jar

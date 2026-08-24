@@ -1,2 +1,5 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Modpack configs are compared byte-for-byte against deployed copies.
+# Disable all line-ending conversion so files round-trip unchanged.
+# NOTE: this deliberately replaces GitHub's default "* text=auto",
+# which would LF-normalize every config file on commit.
+* -text

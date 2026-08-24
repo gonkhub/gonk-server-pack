@@ -1,0 +1,411 @@
+[modules]
+	#Enable Merchant module (rerolls, locks, auto-search, manual trading mode, Trading Hall features).
+	enableMerchantModule = true
+	#Enable Combat module (combat modes, combat stats and AI).
+	enableCombatModule = true
+	#Enable Farming module (deposit/withdraw, manual farming).
+	enableFarmingModule = true
+
+[custom_commands]
+	#Chat trigger radius for Custom Commands.
+	#Only villagers within this range of the player will listen to chat commands.
+	#
+	# Default: 26
+	# Range: 1 ~ 128
+	chatRadius = 26
+
+[chat]
+	#If enabled, player chat messages are only broadcast to players within localizedChatRange blocks (3D sphere).
+	#This is a simple built-in replacement for Localized Chat mods, and also keeps VillagerOverhaul chat triggers working.
+	#
+	localizedChatEnabled = true
+	#Localized chat range in blocks (3D sphere).
+	#Default: 26 blocks.
+	#
+	# Default: 26
+	# Range: 1 ~ 256
+	localizedChatRange = 26
+	#If enabled, players can use shout messages by prefixing chat with '!'. Example: !Hello
+	#Shouts are broadcast server-wide and show in orange.
+	#
+	shoutEnabled = true
+	#Hunger cost (food points) for sending a shout message.
+	#Example: 2 = consumes 1 drumstick.
+	#
+	# Default: 4
+	# Range: 0 ~ 20
+	shoutHungerCost = 4
+	#Prefix that turns a chat message into a SHOUT.
+	#Default: "!".
+	#Example: "!" or "/shout " (not recommended).
+	#
+	shoutPrefix = "!"
+	#If enabled, players can use whisper messages by prefixing chat with '@'. Example: @psst
+	#Whispers are localized (3D sphere) and show in gray italics.
+	#
+	whisperEnabled = true
+	#Whisper range in blocks (3D sphere).
+	#Default: 3 blocks.
+	#
+	# Default: 3
+	# Range: 1 ~ 64
+	whisperRange = 3
+	#Prefix that turns a chat message into a WHISPER.
+	#Default: "#".
+	#
+	whisperPrefix = "#"
+
+[cost]
+	#Item or tag to consume per reroll:
+	#  - "minecraft:emerald"
+	#  - "lightmanscurrency:coin_emerald"
+	#  - "#minecraft:logs"
+	#
+	itemOrTag = "minecraft:emerald"
+	#Prefer Lightman's Currency wallet when available.
+	preferWallet = true
+	#Auto-switch emerald to LC coin if LC is installed.
+	autoPreferLCIfPresent = true
+	#Number of trade offers that are free (no cost).
+	#Example:
+	#  - freeOffers=2 means a villager with 2 offers costs 0.
+	#  - A villager with 4 offers would pay for 2 offers (before lock deductions).
+	#
+	# Default: 2
+	# Range: 0 ~ 64
+	freeOffers = 2
+	#Cost per paid offer (after freeOffers and lock deduction logic).
+	#Total cost = paidOffers * costPerOffer
+	#
+	# Default: 8
+	# Range: 0 ~ 640
+	costPerOffer = 8
+	#Maximum number of locked offers that can reduce the cost computation.
+	#Example:
+	#  - maxDeductibleLockedOffers=1 means locking 10 offers only deducts 1 from the cost calculation.
+	#
+	# Default: 1
+	# Range: 0 ~ 63
+	maxDeductibleLockedOffers = 1
+	#Auto-search hourly price scaling threshold based on "effective paid offers":
+	#  effectivePaidOffers = max(0, offers - freeOffers - min(lockedOffers, maxDeductibleLockedOffers))
+	#
+	#If effectivePaidOffers is BELOW this threshold, auto-search becomes more expensive.
+	#If effectivePaidOffers is ABOVE this threshold, auto-search becomes cheaper.
+	#
+	#The per-step percent is configured via autoHourlyDiscountOrIncreasePct.
+	#
+	# Default: 6
+	# Range: 0 ~ 64
+	autoHourlyThreshold = 6
+	#Percent per step (difference between effectivePaidOffers and autoHourlyThreshold).
+	#
+	#Examples (threshold=6, pct=5):
+	#  - effectivePaidOffers=2 => below by 4 steps => +20%
+	#  - effectivePaidOffers=8 => above by 2 steps => -10%
+	#
+	#This affects the HOURLY cost preview and later settlement.
+	#
+	# Default: 5.0
+	# Range: 0.0 ~ 100.0
+	autoHourlyDiscountOrIncreasePct = 5.0
+	#If enabled, auto-search settlement cost is clamped to a maximum based on the villager's hourly cost.
+	#maxCost = ceil(hourlyCost * maxAutoSearchCostMultiplier)
+	#
+	#This is applied at payment time and affects existing unpaid settlements.
+	#Default: disabled.
+	#
+	enableMaxAutoSearchCost = false
+	#Multiplier used when enableMaxAutoSearchCost is true.
+	#maxCost = ceil(hourlyCost * maxAutoSearchCostMultiplier)
+	#
+	#Example: hourlyCost=22, multiplier=10 => maxCost=220.
+	#
+	# Default: 10.0
+	# Range: 0.0 ~ 1000000.0
+	maxAutoSearchCostMultiplier = 10.0
+	#LEGACY (not used by current cost model).
+	#Cost per villager level (1–5).
+	#Example: [0, 16, 52, 64, 96]
+	#
+	levelCosts = [0, 16, 52, 64, 96]
+
+[recruit]
+	#Minimum possible recruit cost for an unemployed villager.
+	#Cost is computed from villager stats and then normalized into [min..max].
+	#
+	# Default: 8
+	# Range: 0 ~ 64000
+	recruitCostMin = 8
+	#Maximum possible recruit cost for an unemployed villager.
+	#Cost is computed from villager stats and then normalized into [min..max].
+	#
+	# Default: 64
+	# Range: 0 ~ 64000
+	recruitCostMax = 64
+	#Respawn cost multiplier applied to the villager's recruit cost at death.
+	#respawnCost = recruitCost * respawnCostMultiplier
+	#
+	# Default: 2.0
+	# Range: 0.0 ~ 1000.0
+	respawnCostMultiplier = 2.0
+	#If true, respawned villagers keep their equipped items (hands + armor) from the snapshot.
+	#If false, equipped items are cleared on respawn (default).
+	#Note: inventory and internal mod data is still restored.
+	#
+	respawnKeepEquipment = false
+	#If true, respawned villagers keep their internal villager inventory (the 8 vanilla villager slots).
+	#If false, those inventory slots are cleared on respawn.
+	#
+	respawnKeepInventory = true
+
+[limits]
+	#Cooldown in ticks per villager for MANUAL reroll (0 = disabled)
+	# Default: 100
+	# Range: 0 ~ 20000
+	cooldownTicks = 100
+	#Cooldown in ticks per villager for AUTO-SEARCH reroll (0 = disabled)
+	# Default: 600
+	# Range: 0 ~ 20000
+	cooldownTicksAuto = 600
+	#Max rerolls per villager per day (0 = disabled)
+	# Default: 0
+	# Range: 0 ~ 100
+	perVillagerDaily = 0
+
+[behavior]
+	#Allow reroll after villager has XP / trades used.
+	allowAfterTradeUsed = true
+
+[experience]
+	#Villager XP to grant per offer that is actually rerolled during a MANUAL reroll.
+	#
+	#XP granted = manualRerollXpPerOffer * (offersRerolled)
+	#offersRerolled = totalOffersBefore - lockedOffersCount
+	#
+	#Set to 0 to disable XP gain from manual rerolls.
+	#
+	# Default: 1.0
+	# Range: 0.0 ~ 10000.0
+	manualRerollXpPerOffer = 1.0
+	#Villager XP to grant per offer-per-reroll during AUTO-SEARCH.
+	#
+	#XP granted = autoSearchXpPerOffer * (offersRerolledPerReroll) * (successfulRerollCount)
+	#offersRerolledPerReroll = offersAtStart - lockedOffersAtStart
+	#
+	#Set to 0 to disable XP gain from auto-search.
+	#
+	# Default: 0.1
+	# Range: 0.0 ~ 10000.0
+	autoSearchXpPerOffer = 0.1
+	#Villager XP is awarded for planted items.
+	#
+	#XP granted = farmingHarvestXp * floor(itemsPlanted / farmingHarvestItemsPerXp)
+	#Default: 1 XP per 10 planted items.
+	#
+	# Default: 10
+	# Range: 1 ~ 10000
+	farmingHarvestItemsPerXp = 10
+	#XP amount to grant per planting unit (see farmingHarvestItemsPerXp).
+	#Set to 0 to disable XP gain from planting.
+	#
+	# Default: 1
+	# Range: 0 ~ 10000
+	farmingHarvestXp = 1
+	#Base manual farming range around the villager workstation.
+	#This is then modified by the villager "Ranger" stat percent delta.
+	#Default: 10 blocks.
+	#
+	# Default: 10
+	# Range: 1 ~ 64
+	manualFarmBaseRange = 10
+	#Manual farming work window start time (daytime ticks 0..23999).
+	#Vanilla-like default is 2000.
+	#
+	# Default: 2000
+	# Range: 0 ~ 23999
+	manualFarmWorkStartTick = 2000
+	#Manual farming work window end time (daytime ticks 0..23999).
+	#Vanilla-like default is 9000.
+	#
+	# Default: 9000
+	# Range: 0 ~ 23999
+	manualFarmWorkEndTick = 9000
+	#Plant Whisperer check interval (seconds).
+	#Every interval, the villager may perform a free-standing bonemeal action on a nearby crop.
+	#Default: 60 seconds.
+	#
+	# Default: 60
+	# Range: 1 ~ 10000
+	plantWhispererIntervalSeconds = 60
+	#Plant Whisperer base chance (percent) at 0 stat points.
+	#This chance is then multiplied by (1 + deltaPct/100) from the Plant Whisperer stat.
+	#Default: 50%.
+	#
+	# Default: 50.0
+	# Range: 0.0 ~ 100.0
+	plantWhispererBaseChancePct = 50.0
+
+	[villagerStats.merchant]
+		#Generosity effect MIN percent at points = -100.
+		#
+		# Default: -20.0
+		# Range: -1000.0 ~ 1000.0
+		generosityMinPct = -20.0
+		#Generosity effect MAX percent at points = +100.
+		#
+		# Default: 20.0
+		# Range: -1000.0 ~ 1000.0
+		generosityMaxPct = 20.0
+		#Timeliness effect MIN percent at points = -100.
+		#
+		# Default: -20.0
+		# Range: -1000.0 ~ 1000.0
+		timelinessMinPct = -20.0
+		#Timeliness effect MAX percent at points = +100.
+		#
+		# Default: 20.0
+		# Range: -1000.0 ~ 1000.0
+		timelinessMaxPct = 20.0
+		#Intellect effect MIN percent at points = -100.
+		#
+		# Default: -20.0
+		# Range: -1000.0 ~ 1000.0
+		intellectMinPct = -20.0
+		#Intellect effect MAX percent at points = +100.
+		#
+		# Default: 20.0
+		# Range: -1000.0 ~ 1000.0
+		intellectMaxPct = 20.0
+		#Hoarder offer DELTA clamp MIN (applied to hoarder points).
+		#
+		# Default: -3
+		# Range: -64 ~ 64
+		hoarderExtraOffersMin = -3
+		#Hoarder offer DELTA clamp MAX (applied to hoarder points).
+		#
+		# Default: 3
+		# Range: -64 ~ 64
+		hoarderExtraOffersMax = 3
+
+	[villagerStats.farming]
+		#Motivation effect MIN percent at points = -100.
+		#Applied to the manual-farming work window length.
+		#
+		# Default: -20.0
+		# Range: -1000.0 ~ 1000.0
+		motivationMinPct = -20.0
+		#Motivation effect MAX percent at points = +100.
+		#Applied to the manual-farming work window length.
+		#
+		# Default: 20.0
+		# Range: -1000.0 ~ 1000.0
+		motivationMaxPct = 20.0
+		#Efficiency effect MIN percent at points = -100.
+		#At points=0 this is always 0% (no effect).
+		#Negative values increase the chance to consume an extra seed/bonemeal (after the normal one).
+		#Default: -20% at points=-100.
+		#Example: -20% means 20% chance to consume an extra item when possible.
+		#
+		# Default: -20.0
+		# Range: -1000.0 ~ 1000.0
+		efficiencyMinPct = -20.0
+		#Efficiency effect MAX percent at points = +100.
+		#At points=0 this is always 0% (no effect).
+		#Positive values increase the chance to not consume a seed/bonemeal.
+		#Default: +20% at points=+100.
+		#Example: +20% means 20% chance to not consume the item.
+		#
+		#NOTE: Avoid setting this too high (recommended <= 50%).
+		#A true 100% save chance makes seeds/bonemeal effectively infinite. VillagerOverhaul hard-caps the
+		#save chance to 95% to prevent infinite planting even if config/stat values would imply 100%.
+		#
+		# Default: 20.0
+		# Range: -1000.0 ~ 1000.0
+		efficiencyMaxPct = 20.0
+		#Plant Whisperer chance delta MIN percent at points = -100.
+		#This is applied to the base chance as: chance = baseChance * (1 + deltaPct/100).
+		#Values below -50% are effectively clamped to -50%.
+		#
+		# Default: -20.0
+		# Range: -1000.0 ~ 1000.0
+		plantWhispererMinPct = -20.0
+		#Plant Whisperer chance delta MAX percent at points = +100.
+		#
+		# Default: 20.0
+		# Range: -1000.0 ~ 1000.0
+		plantWhispererMaxPct = 20.0
+		#Ranger effect MIN percent at points = -100.
+		#Applied to the manual-farming range around the workstation.
+		#
+		# Default: -20.0
+		# Range: -1000.0 ~ 1000.0
+		rangerMinPct = -20.0
+		#Ranger effect MAX percent at points = +100.
+		#Applied to the manual-farming range around the workstation.
+		#
+		# Default: 20.0
+		# Range: -1000.0 ~ 1000.0
+		rangerMaxPct = 20.0
+		#Maximum percentage variance applied after a child inherits a stat from one parent.
+		#Example: 10.0 means the final stat is randomized within roughly -10% to +10% of the inherited value.
+		#Applied independently to each of the 12 villager stats when a baby is bred by two tracked VillagerOverhaul villagers.
+		#
+		#Note: the config key name is kept for backward compatibility with existing server config files.
+		#
+		# Default: 10.0
+		# Range: 0.0 ~ 100.0
+		breedingStatMutationChancePct = 10.0
+
+	[villagerStats.combat]
+		#Vitality MIN delta applied to generic.max_health at points=-100.
+		#Unit: health points (2.0 = 1 heart).
+		#Example: -6.0 means -3 hearts.
+		#
+		# Default: -6.0
+		# Range: -1024.0 ~ 1024.0
+		vitalityMinHealth = -6.0
+		#Vitality MAX delta applied to generic.max_health at points=+100.
+		#Unit: health points (2.0 = 1 heart).
+		#Example: +10.0 means +5 hearts.
+		#
+		# Default: 10.0
+		# Range: -1024.0 ~ 1024.0
+		vitalityMaxHealth = 10.0
+		#Agility MIN delta applied to generic.movement_speed at points=-100.
+		#Unit: raw movement_speed additive value.
+		#Typical base values are around 0.1; keep changes small.
+		#
+		# Default: -0.1
+		# Range: -1.0 ~ 1.0
+		agilityMinSpeed = -0.1
+		#Agility MAX delta applied to generic.movement_speed at points=+100.
+		#Unit: raw movement_speed additive value.
+		#
+		# Default: 0.1
+		# Range: -1.0 ~ 1.0
+		agilityMaxSpeed = 0.1
+		#Strength MIN delta applied to generic.attack_damage at points=-100.
+		#Unit: damage points.
+		#
+		# Default: -3.0
+		# Range: -1024.0 ~ 1024.0
+		strengthMinDamage = -3.0
+		#Strength MAX delta applied to generic.attack_damage at points=+100.
+		#Unit: damage points.
+		#
+		# Default: 3.0
+		# Range: -1024.0 ~ 1024.0
+		strengthMaxDamage = 3.0
+		#Armor MIN delta applied to generic.armor at points=-100.
+		#Unit: armor points.
+		#
+		# Default: -5.0
+		# Range: -1024.0 ~ 1024.0
+		armorMin = -5.0
+		#Armor MAX delta applied to generic.armor at points=+100.
+		#Unit: armor points.
+		#
+		# Default: 5.0
+		# Range: -1024.0 ~ 1024.0
+		armorMax = 5.0

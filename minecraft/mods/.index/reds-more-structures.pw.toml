@@ -1,0 +1,16 @@
+filename = 'reds-more-structures-1.1.0.jar'
+name = 'Red’s More Structures'
+side = 'server'
+x-prismlauncher-loaders = [ 'neoforge', 'forge', 'quilt', 'fabric' ]
+x-prismlauncher-mc-versions = [ '1.21', '1.21.1', '1.21.10', '1.21.2', '1.21.3', '1.21.4', '1.21.5', '1.21.6', '1.21.7', '1.21.8', '1.21.9' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'b18621d56a997425d0d1cd0e0c86b8320fb23fa242928df3cab969912ea41838575e584826af1c10867a8984faf964dd68b345203481ddc5b2546909adefbe95'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/DKJltXeY/versions/PWYqlcAH/reds-more-structures-1.1.0.jar'
+
+[update.modrinth]
+mod-id = 'DKJltXeY'
+version = 'PWYqlcAH'

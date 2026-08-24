@@ -1,0 +1,35 @@
+[hud]
+	#Enable the always-on emerald pouch HUD
+	enabled = true
+	#HUD X position (pixels from left)
+	# Default: 6
+	# Range: -100000 ~ 100000
+	x = 6
+	#HUD Y position (pixels from top)
+	# Default: 6
+	# Range: -100000 ~ 100000
+	y = 6
+	#HUD scale multiplier
+	# Default: 1.0
+	# Range: 0.25 ~ 4.0
+	scale = 1.0
+
+[withdraw_button]
+	#Show the withdraw button on inventory and merchant screens
+	enabled = true
+	#Withdraw button X offset relative to the inventory GUI left
+	# Default: 156
+	# Range: -100000 ~ 100000
+	inventoryOffsetX = 156
+	#Withdraw button Y offset relative to the inventory GUI top
+	# Default: 4
+	# Range: -100000 ~ 100000
+	inventoryOffsetY = 4
+	#Withdraw button X offset relative to the merchant GUI left
+	# Default: 256
+	# Range: -100000 ~ 100000
+	merchantOffsetX = 256
+	#Withdraw button Y offset relative to the merchant GUI top
+	# Default: 4
+	# Range: -100000 ~ 100000
+	merchantOffsetY = 4

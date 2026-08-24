@@ -1,0 +1,89 @@
+#Distant Dangers!
+[difficulty_scaling]
+	#Distance in blocks required for 2x difficulty multiplier
+	# Default: 1000.0
+	# Range: 1.0 ~ 100000.0
+	distance_scale = 1000.0
+	#Maximum difficulty multiplier cap
+	# Default: 5.0
+	# Range: 1.0 ~ 100.0
+	max_multiplier = 5.0
+	#Starting difficulty multiplier
+	# Default: 1.0
+	# Range: 0.1 ~ 10.0
+	base_multiplier = 1.0
+
+[stat_toggles]
+	#Scale mob health with distance
+	scale_health = true
+	#Scale mob damage with distance
+	scale_damage = true
+	#Scale mob armor with distance
+	scale_armor = true
+	#Scale mob movement speed with distance. Not recommended, but it's pretty funny.
+	scale_speed = false
+
+[xp_scaling]
+	#Enable XP scaling based on distance
+	enable_xp_scaling = true
+	#Distance in blocks required for 2x XP multiplier
+	# Default: 1000.0
+	# Range: 1.0 ~ 100000.0
+	xp_distance_scale = 3000.0
+	#Maximum XP multiplier cap
+	# Default: 10.0
+	# Range: 1.0 ~ 100.0
+	xp_max_multiplier = 100.0
+
+[spawn_restrictions]
+	#Enable entity spawn restrictions by distance
+	enable_restrictions = false
+	#List of entities with minimum spawn distance
+	#Format: modid:entity_name@distance
+	#Supports wildcards: modid:*entity*@distance
+	#Example: Restrict wither skeletons to 5000+ blocks from spawn
+	restricted_entities = []
+	#Restrict all entities from specific mods
+	#Format: modid@distance
+	#Example: somemod@5000 restricts all entities from 'somemod'
+	restricted_mods = []
+
+[structure_restrictions]
+	#Enable structure generation restrictions by distance
+	enable_structure_restrictions = false
+	#List of structures with minimum generation distance
+	#Format: modid:structure_name@distance
+	#Supports wildcards: modid:*structure*@distance
+	#Example: minecraft:stronghold@8000, minecraft:*pyramid*@5000
+	restricted_structures = []
+	#Restrict all structures from specific mods
+	#Format: modid@distance
+	#Example: somemod@5000 restricts all structures from 'somemod'
+	restricted_structure_mods = []
+
+[entity_types]
+	#Apply scaling to hostile mobs
+	affect_monsters = true
+	#Apply scaling to passive mobs
+	affect_animals = false
+
+[custom_spawn_point]
+	#Use a custom spawn point instead of world spawn (0,0)
+	#When enabled, distance is calculated from either a structure or manual coordinates
+	use_custom_spawn_point = false
+	#Teleport players to the custom spawn point when they join
+	#When enabled, players will spawn at the custom spawn location
+	#When disabled, custom spawn only affects distance calculations
+	teleport_players_to_custom_spawn = true
+	#Structure type to use as spawn center (e.g., 'minecraft:village_plains', 'minecraft:stronghold')
+	#Leave empty to use manual coordinates instead
+	#The mod will search for the nearest structure of this type
+	custom_spawn_structure = ""
+	#Manual X/Z coordinates for custom spawn point
+	#Only used if custom_spawn_structure is empty
+	# Default: 0
+	# Range: -30000000 ~ 30000000
+	custom_spawn_x = 0
+	# Default: 0
+	# Range: -30000000 ~ 30000000
+	custom_spawn_z = 0

@@ -1,0 +1,16 @@
+filename = 'mobchampions-1.21.1-neoforge-1.0.2.2-NEOFORGE.jar'
+name = 'Mob Champions'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '27d1e84c7b77f528d57200d8f74575f0fa7d71a8d204e00117b79aea4a112bc1da3728119b06712ac96d917447d0c6b4bb711b810b4449947e63988e5234802e'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/zrbKKaSr/versions/Tht5nbz9/mobchampions-1.21.1-neoforge-1.0.2.2-NEOFORGE.jar'
+
+[update.modrinth]
+mod-id = 'zrbKKaSr'
+version = 'Tht5nbz9'

@@ -1,0 +1,16 @@
+filename = 'distantores-1.0.0.jar'
+name = 'Distant Ores'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'eb12d225d6c833c1e67218f8415ccb6f2df70c0f'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7964322
+project-id = 1521241
