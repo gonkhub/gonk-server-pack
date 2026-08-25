@@ -180,4 +180,4 @@ git push origin pack-4
 ```
 
 Check what is already marked with `git ls-remote --tags origin`. `pack-3` is tagged and pushed at
-`13e3354`; `pack-4` is tagged locally and still needs pushing.
+`13e3354`, `pack-4` at `d0e4492`.
