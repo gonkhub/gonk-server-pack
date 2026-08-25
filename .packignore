@@ -1,2 +1,50 @@
+# Excluded from PrismLauncher instance exports (Export Instance -> zip).
+# The zip is what players download, so it should contain the pack and the
+# world and nothing else. Anything here is either regenerated on first run,
+# specific to this machine, or leaks a server address / auth token.
+
+# repo plumbing
 .git
 .gitignore
+.gitattributes
+README.md
+scripts
+
+# logs, crashes, debug dumps — 12 crash reports shipped in Pack 3
+minecraft/logs
+minecraft/crash-reports
+minecraft/debug
+minecraft/screenshots
+minecraft/.mixin.out
+
+# dev leftovers
+minecraft/.vscode
+minecraft/.probe
+minecraft/.sable
+
+# regenerated caches
+minecraft/downloads
+minecraft/coremods
+minecraft/texturepacks
+minecraft/dynamic-data-pack-cache
+minecraft/dynamic-resource-pack-cache
+minecraft/server-resource-packs
+minecraft/bluemap/logs
+
+# per-player state, not pack content
+minecraft/xaero
+minecraft/XaeroWaypoints_BACKUP240807
+minecraft/usercache.json
+minecraft/usernamecache.json
+minecraft/patchouli_data.json
+minecraft/patchouli_books
+minecraft/ponders_watched.json
+minecraft/command_history.txt
+minecraft/config/jei/world
+minecraft/bluemap/pluginState.json
+
+# holds the live server address
+minecraft/servers.dat_old
+
+# holds a generated auth token — KubeJS regenerates it on first run
+minecraft/kubejs/config/web_server.json

@@ -49,18 +49,24 @@
 
 # ── Mod jars: track the packwiz index, not the downloads ──
 # mods/.index/*.pw.toml carries the URL + sha512 for every mod that
-# Prism installed, so the 99 third-party jars are reproducible without
+# Prism installed, so the third-party jars are reproducible without
 # being redistributed here. The exceptions below were added by hand and
 # have no index entry, so they must be tracked or the pack won't build.
-# ADD ANY NEW HAND-INSTALLED JAR TO THIS LIST.
+#
+# These are version globs on purpose. They used to be exact filenames,
+# which meant shipping thee-1.0.1.jar would silently drop the pack's
+# own settlements mod from the repo. Match the name, not the version.
 /minecraft/mods/*
 !/minecraft/mods/.index/
-!/minecraft/mods/thee-1.0.0.jar
-!/minecraft/mods/chaosgate-1.0.0.jar
-!/minecraft/mods/omnifix-1.0.0.jar
-!/minecraft/mods/akschematics-1.0.0.jar
-!/minecraft/mods/ProbeJS-8.0.3.jar
-!/minecraft/mods/kubejs-neoforge-2101.7.2-build.368.jar
-!/minecraft/mods/kubejs-create-neoforge-2101.3.1-build.18.jar
-!/minecraft/mods/lootjs-neoforge-1.21.1-3.7.0.jar
-!/minecraft/mods/morejs-neoforge-1.21.1-0.16.0.jar
+
+# custom, unreproducible — losing these loses the pack
+!/minecraft/mods/thee-*.jar
+!/minecraft/mods/chaosgate-*.jar
+!/minecraft/mods/omnifix-*.jar
+!/minecraft/mods/akschematics-*.jar
+
+# third-party, hand-installed (no packwiz index entry)
+!/minecraft/mods/kubejs-neoforge-*.jar
+!/minecraft/mods/kubejs-create-neoforge-*.jar
+!/minecraft/mods/lootjs-neoforge-*.jar
+!/minecraft/mods/morejs-neoforge-*.jar

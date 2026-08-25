@@ -3,3 +3,8 @@
 # NOTE: this deliberately replaces GitHub's default "* text=auto",
 # which would LF-normalize every config file on commit.
 * -text
+
+# instance.cfg carries per-launch counters and this machine's Java paths.
+# scripts/clean-instance-cfg.sh strips them on the way into git; the working
+# copy is left alone. Unconfigured clones just get the file verbatim.
+instance.cfg filter=prism-instance-cfg

@@ -1,0 +1,57 @@
+#Distance in blocks from world spawn, measured the same way Far From Home measures it.
+[general]
+	#Width of the fade-in band above each gate. A gate of 50000 with a ramp of 25000 means
+	#0% at 50000 blocks, 50% at 62500, and full strength at 75000.
+	#Set to 0 for a hard on/off switch at the gate distance.
+	# Default: 25000
+	# Range: 0 ~ 30000000
+	rampWidthBlocks = 25000
+
+#Far From Home's rare monsters: a flat 3% roll on every monster spawn that grants
+#infinite Glowing plus up to three infinite beneficial effects, with no chat announcement.
+#This is the unannounced glowing mob.
+[rare_buffs]
+	#Gate Far From Home's rare monster roll by distance from spawn.
+	enabled = true
+	#No rare monsters can spawn within this many blocks of world spawn.
+	# Default: 50000
+	# Range: 0 ~ 30000000
+	gateBlocks = 50000
+
+#Far From Home rewrites max_health's BASE value rather than adding a modifier, and applies
+#it to every Monster with no boss exclusion. On a mod boss that already has several hundred
+#base health, even the tier-0 multiplier overshoots vanilla's 1024 ceiling, which is why
+#those mobs read as exactly 1024 no matter how close to spawn they are.
+[tuned_mobs]
+	#Skip Far From Home's scaling, gear and level nametag for mobs whose base max health is
+	#already above the threshold below, while they are inside the gate distance.
+	enabled = true
+	#Base max health above which a mob counts as hand-tuned and is left alone.
+	#Vanilla hostiles sit at 20-40; mod bosses in this pack sit at 350-800.
+	# Default: 100.0
+	# Range: 1.0 ~ 1024.0
+	baseHealthThreshold = 100.0
+	#Beyond this many blocks from spawn, hand-tuned mobs scale normally again.
+	# Default: 50000
+	# Range: 0 ~ 30000000
+	gateBlocks = 50000
+
+#MobChampions rolls its rank off flat weights, so a Legendary champion - +270% of base
+#health, +15 armor, full knockback immunity, netherite gear - is as likely at spawn as
+#anywhere. Ranks are capped by distance rather than suppressed, so champions stay a
+#feature near spawn at a sane power level.
+[champion_ranks]
+	#Cap champion rank by distance from spawn. Uncommon is always allowed.
+	enabled = true
+	#Blocks from spawn before Rare champions can appear.
+	# Default: 5000
+	# Range: 0 ~ 30000000
+	rareGateBlocks = 5000
+	#Blocks from spawn before Epic champions can appear.
+	# Default: 20000
+	# Range: 0 ~ 30000000
+	epicGateBlocks = 20000
+	#Blocks from spawn before Legendary champions can appear.
+	# Default: 50000
+	# Range: 0 ~ 30000000
+	legendaryGateBlocks = 50000
