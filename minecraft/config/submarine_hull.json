@@ -27401,6 +27401,10 @@
     "maxWaterDepth": 55,
     "implosionChance": 0.67
   },
+  "thee:mechanical_broker": {
+    "maxWaterDepth": 67,
+    "implosionChance": 0.6
+  },
   "trading_floor:trading_depot": {
     "maxWaterDepth": 30,
     "implosionChance": 0.82
